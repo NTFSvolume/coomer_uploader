@@ -1,6 +1,4 @@
-from gofile import gofile
-from bunkr import bunkr
-from pixeldrain import pixeldrain
+from coomer_uploader import gofile, bunkr, pixeldrain
 import customtkinter as ctk
 import os
 import json

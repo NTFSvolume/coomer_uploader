@@ -18,7 +18,7 @@ coomer_uploader is a multihost uploader with a simple gui interface.
 
 Download the executable from the releases or:
 
-`python3 coomer_uploader`
+`python3 main.py`
 
 ## Authentication
 
