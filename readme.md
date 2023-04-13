@@ -12,11 +12,11 @@ coomer_uploader is a multihost uploader with a simple gui interface.
 
 [Python 3.9+](https://www.python.org/) (what i used)
 
-`python3 -m pip install requests`
-
-`python3 -m install customtkinter`
+`python3 -m pip install -r requirements.txt`
 
 ## Running
+
+Run the executable or:
 
 `python3 coomer_uploader`
 
