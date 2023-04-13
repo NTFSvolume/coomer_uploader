@@ -17,7 +17,6 @@ def bunkr(token, album_name, files_to_upload):
                 'token': token
             }
         )
-    print(r.json())
     
     return new_album_link(token, album_name, album_id)
     
