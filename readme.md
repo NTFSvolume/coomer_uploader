@@ -1,7 +1,5 @@
 # coomer_uploader
 
-coomer_uploader is a multihost uploader with a simple gui interface.
-
 ![Preview](https://images2.imgbox.com/55/f8/Rx6c7mm3_o.jpg)
 
 ## Features
