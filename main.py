@@ -1,7 +1,8 @@
-import customtkinter as ctk, sys
+import customtkinter as ctk
 import os, json, logging
 from threading import Thread
 from coomer_uploader import logging_setup
+import sys
 
 logging_setup.setup_logger(log_to_file=True)
 logger = logging.getLogger(__name__)
@@ -54,16 +55,11 @@ class App(ctk.CTk):
         self.build_album_name_section()
         self.build_bunkr_settings_section()
         self.build_links_section()
-        self.build_console_output_section()
-        sys.stdout.write = self.redirector
-        
+        self.build_console_output_section()        
         logging.getLogger().addHandler(self.create_handler())
         
         self.get_bunkr_settings()
         
-    def redirector(self,inputStr):
-        self.console_output.insert('0.0', inputStr)
-    
     def build_console_output_section(self):
         self.show_console_button = ctk.CTkButton(self.footer_container, text="Show console", command=self.toggle_flyout)
         self.show_console_button.grid(column=0, row=0, padx=10, pady=(10, 10),columnspan=4,sticky='nsew')

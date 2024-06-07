@@ -43,20 +43,18 @@ class bunkr:
                 'public': public
             }
             
-        try:
-            response = self.session.post(
-                bunkr.api_base_domain+'api/albums',
-                headers={'token': self.token},
-                json=json_data
-            )
-            if  response.status_code == 200:
-                id = response.json()['id']
-                logger.info(f"album created {{'name': '{album_name}', 'id': '{id}'}}")
-
-        except Exception as e:
-            logger.error(f'unable to create album {album_name}  {e}')
-            raise ValueError(f'unable to create album {album_name}  {e}')
         
+        response = self.session.post(
+            bunkr.api_base_domain+'api/albums',
+            headers={'token': self.token},
+            json=json_data
+        )
+        if  response.status_code == 200:
+            id = response.json()['id']
+            logger.info(f"album created {{'name': '{album_name}', 'id': '{id}'}}")
+        else:
+            raise ValueError(f"unable to create album '{album_name}' - {response.json()['description']}")
+    
         return id
 
     def get_api_server(self):
@@ -99,7 +97,7 @@ class bunkr:
                     logger.debug(response.text)
 
                 else:
-                    logger.error(f'upload of {file} failed - HTTP_error_code: {response.status_code}')
+                    logger.error({'status': 'False', 'response': response.text})
                     continue
 
             except Exception as e:
